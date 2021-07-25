@@ -17,8 +17,20 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatelessWidget {
-
-  final List<Transaction> transactions = [];
+  final List<Transaction> transactions = [
+    Transaction(
+      id: "t1",
+      title: "shoes",
+      amount: 99.50,
+      date: DateTime.now(),
+    ),
+    Transaction(
+      id: "t2",
+      title: "Groceries",
+      amount: 50,
+      date: DateTime.now(),
+    )
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +41,6 @@ class MyHomePage extends StatelessWidget {
         ),
       ),
       body: Column(
-        
         children: [
           Container(
             width: double.infinity,
@@ -37,8 +48,48 @@ class MyHomePage extends StatelessWidget {
               child: Text("Chart"),
             ),
           ),
-          Card(
-            child: Text("List of Transaction"),
+          Column(
+            children: transactions.map((tx) {
+              return Card(
+                child: Row(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 15,
+                      ),
+                      decoration: BoxDecoration(
+                        border: Border.all(
+                          color: Colors.purple,
+                          width: 2,
+                        ),
+                      ),
+                      padding: EdgeInsets.all(10),
+                      child: Text(
+                        tx.amount.toString(),
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.purple),
+                      ),
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          tx.title,
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18,
+                          ),
+                        ),
+                        Text(tx.date.toString()),
+                      ],
+                    )
+                  ],
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),

@@ -3,7 +3,7 @@ import 'dart:ffi';
 class Transaction {
   final String id;
   final String title;
-  final Double amount;
+  final double amount;
   final DateTime date;
 
   Transaction(
