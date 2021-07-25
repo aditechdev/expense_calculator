@@ -23,8 +23,19 @@ class MyHomePage extends StatelessWidget {
           "Expense Tracker",
         ),
       ),
-      body: Center(
-        child: Text("data"),
+      body: Column(
+        
+        children: [
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text("Chart"),
+            ),
+          ),
+          Card(
+            child: Text("List of Transaction"),
+          ),
+        ],
       ),
     );
   }
