@@ -1,6 +1,4 @@
-import 'package:expense_calculator/widgets/new_transaction.dart';
-import 'package:expense_calculator/widgets/transaction_list.dart';
-import 'package:expense_calculator/widgets/user_transaction.dart';
+import './widgets/user_transaction.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,9 +26,13 @@ class MyHomePage extends StatelessWidget {
       ),
       body: Column(
         children: [
+          Container(
+            width: double.infinity,
+            child: Card(
+              child: Text("Chart"),
+            ),
+          ),
           UserTransaction(),
-          NewTransaction(),
-          TransactionList(),
         ],
       ),
     );
